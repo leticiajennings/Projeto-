@@ -2,6 +2,7 @@
 
 
 import csv
+import datetime
 
 def adicionar_item():
     codigo = input("Digite o código do item: ")
