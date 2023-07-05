@@ -55,15 +55,29 @@ def exibir_catalogo():
             print("Quantidade disponível:", linha[2])
             print()
             
+def exibir_historico():
+    with open("historico.csv", "r") as arquivo:
+        reader = csv.reader(arquivo)
+        for linha in reader:
+            data = datetime.datetime.strptime(linha[0], )
+            descricao = linha[1]
+            quantidade = linha[2]
+            print("Data e hora:", data)
+            print("Descrição:", descricao)
+            print("Quantidade:", quantidade)
+            print()
+
+
 def menu():
     print("1. Adicionar item")
     print("2. Pesquisar item")
     print("3. Atualizar quantidade")
     print("4. Exibir catálogo")
-    print("5. Sair")
-    
+    print("5. Exibir histórico")
+    print("6. Sair")
+
     opcao = input("Digite a opção desejada: ")
-    
+
     if opcao == "1":
         adicionar_item()
     elif opcao == "2":
@@ -73,12 +87,15 @@ def menu():
     elif opcao == "4":
         exibir_catalogo()
     elif opcao == "5":
+        exibir_historico()
+    elif opcao == "6":
         return
     else:
         print("Opção inválida. Tente novamente.")
-    
+
     print()
     menu()
 
 # Executa o programa 
 menu()
+
